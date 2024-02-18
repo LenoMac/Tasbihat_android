@@ -4,10 +4,10 @@
     "slug": "tasbihat",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icons/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.jpg",
+      "image": "./assets/icons/splash.jpg",
       "resizeMode": "cover",
       "backgroundColor": "#320548"
     },

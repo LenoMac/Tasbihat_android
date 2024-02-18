@@ -1,36 +1,56 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Menu } from "./screens/Menu";
-import { Shahada } from "./screens/Shahada";
-import { Tasbihat } from "./screens/Tasbihat";
-import { Sur } from "./screens/Sur";
-import Prayer from "./screens/Prayer";
-import { Javshan } from "./screens/Javshan";
-import Tafrijia from "./screens/Tafrijia";
-import { Fajr } from "./screens/Fajr";
-import { Zuhr } from "./screens/Zuhr";
-import { Asr } from "./screens/Asr";
-import { Isha } from "./screens/Isha";
-import { Magrib } from "./screens/Magrib";
+import { Menu } from "./components/pages/home/Menu";
+import { Shahada } from "./components/pages/shahada/Shahada";
+import { Tasbihat } from "./components/pages/tasbihat/Tasbihat";
+import { Sur } from "./components/pages/sur/Sur";
+import { Prayer } from "./components/pages/dua/Prayer";
+import { Javshan } from "./components/pages/javshan/Javshan";
+import { Tafrijia } from "./components/pages/tafrijia/Tafrijia";
+import { Fajr } from "./components/pages/fajr/Fajr";
+import { Zuhr } from "./components/pages/zuhr/Zuhr";
+import { Asr } from "./components/pages/asr/Asr";
+import { Isha } from "./components/pages/isha/Isha";
+import { Magrib } from "./components/pages/magrib/Magrib";
+
+import home from "./assets/img/Home.png";
 import React from "react";
+import { Image } from "react-native";
 // Импорт Суры
-import Al_Fatiha from "./SurScreens/Al_Fatiha";
-import Al_Asr from "./SurScreens/Al_Asr";
-import AlHumaza from "./SurScreens/AlHumaza"
-import AlFil from "./SurScreens/AlFil"
-import Kuraysh from "./SurScreens/Kuraysh"
-import AlMaun from "./SurScreens/AlMaun"
-import AlKavsar from "./SurScreens/AlKavsar";
-import AlKafirun from "./SurScreens/AlKafirun"
-import AnNasr from "./SurScreens/AnNasr"
-import AlMasad from "./SurScreens/AlMasad"
-import AlIhlas from "./SurScreens/AlIhlas"
-import AlFalak from "./SurScreens/AlFalak"
-import AnNas from "./SurScreens/AnNas"
+// import  Al_Fatiha from "./components/pages/SurScreens/Al_Fatiha";
+// import Al_Asr from "./components/pages/SurScreens/Al_Asr";
+
 // Импорт О нас
-import About from "./screens/About";
+// import AlHumaza from "./SurScreens/AlHumaza"
+// import AlFil from "./SurScreens/AlFil"
+// import Kuraysh from "./SurScreens/Kuraysh"
+// import AlMaun from "./SurScreens/AlMaun"
+// import AlKavsar from "./SurScreens/AlKavsar";
+// import AlKafirun from "./SurScreens/AlKafirun"
+// import AnNasr from "./SurScreens/AnNasr"
+// import AlMasad from "./SurScreens/AlMasad"
+// import AlIhlas from "./SurScreens/AlIhlas"
+// import AlFalak from "./SurScreens/AlFalak"
+// import AnNas from "./SurScreens/AnNas"
+import About from "./components/pages/about-app/About";
 
 const Stack = createNativeStackNavigator();
+
+const screens = [
+  { name: "ШАХАДА", title: "ШАХАДА", component: Shahada, id: "1" },
+  { name: "ТАСБИХАТ", title: "ТАСБИХАТ", component: Tasbihat, id: "1" },
+  { name: "СУРЫ", title: "СУРЫ", component: Sur, id: "1" },
+  { name: "СУРЫ", title: "СУРЫ", component: Prayer, id: "1" },
+  { name: "СУРЫ", title: "СУРЫ", component: Javshan, id: "1" },
+  { name: "ТАФРИЖИЯ", title: "ТАФРИЖИЯ", component: Tafrijia, id: "1" },
+  { name: "О НАС", title: "О НАС", component: About, id: "1" },
+  { name: "ФАДЖР", title: "ФАДЖР", component: Fajr, id: "1" },
+  { name: "ЗУХР", title: "ЗУХР", component: Zuhr, id: "1" },
+  { name: "АСР", title: "АСР", component: Asr, id: "1" },
+  { name: "МАГРИБ", title: "МАГРИБ", component: Magrib, id: "1" },
+  { name: "ИША", title: "ИША", component: Isha, id: "1" },
+];
+
 function Navigate() {
   return (
     <NavigationContainer>
@@ -39,187 +59,36 @@ function Navigate() {
           name="Menu"
           component={Menu}
           options={{
-             headerShown: false,
+            headerShown: false,
           }}
         />
         <Stack.Screen
           name="Shahada"
           component={Shahada}
           options={{
-            // headerShown: false,
-            headerBackButtonMenuEnabled: false,
-            // headerRight: {},
+            title: "ШАХАДА",
+            headerStyle: { backgroundColor: "#320548" },
+            headerTitleAlign: "center",
+            headerTitleStyle: { color: "white" },
+            headerTintColor: "white",
+            headerRight: () => (
+              <Image
+                style={{ width: 35, height: 35, objectFit: "scale-down" }}
+                source={home}
+              />
+            ),
           }}
         />
-        <Stack.Screen
-          name="Tasbihat"
-          component={Tasbihat}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="Sur"
-          component={Sur}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="Prayer"
-          component={Prayer}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="Javshan"
-          component={Javshan}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="Tafrijia"
-          component={Tafrijia}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="Fajr"
-          component={Fajr}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="Zuhr"
-          component={Zuhr}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="Acr"
-          component={Asr}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="Isha"
-          component={Isha}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="Magrib"
-          component={Magrib}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="al-Fatiha"
-          component={Al_Fatiha}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="al-Asr"
-          component={Al_Asr}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="al-Humaza"
-          component={AlHumaza}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="al-Fil"
-          component={AlFil}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="Kuraysh"
-          component={Kuraysh}
-          options={{
-            headerShown: false,
-          }}
-        />
+        {/* {screens.map((item) => {
+          return (
+            <Stack.Screen
+              name={item.name}
+              key={item.id}
+              component={item.component}
 
-        <Stack.Screen
-          name="al-Kavsar"
-          component={AlKavsar}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="al-Kafirun"
-          component={AlKafirun}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="an-Nasr"
-          component={AnNasr}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="al-Masad"
-          component={AlMasad}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="al-Ihlas"
-          component={AlIhlas}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="al-Falak"
-          component={AlFalak}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="an-Nas"
-          component={AnNas}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="al-Maun"
-          component={AlMaun}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="about"
-          component={About}
-          options={{
-            headerShown: false
-          }}
-        />
+            />
+          );
+        })} */}
       </Stack.Navigator>
     </NavigationContainer>
   );
