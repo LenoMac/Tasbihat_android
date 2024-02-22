@@ -1,79 +1,69 @@
-// import React, { useRef } from "react";
-// import { View, FlatList, Text, Dimensions } from "react-native";
-// import { gStyle } from "../Style/Style";
-// import Header from "./Header";
-// import JavDua from "./DuaScreens/Dua"; 
-// import { OnboardingItem } from "../OnBoarding";
-// import AsyncStorage from "@react-native-async-storage/async-storage";
+import React, { useRef } from "react";
+import { View, FlatList, Text, Dimensions, StyleSheet } from "react-native";
+import JavshanItem from "./JavshanItem";
+import Card from "../../atoms/card/javshan-card/Card";
+// import { useLanguageState } from "../../../states/language/useLanguageState";
 
-// export const Javshan = () => {
-//   const [page, setPage] = React.useState(Number(0));
+export const Javshan = () => {
+  // const { lang, loadLanguage } = useLanguageState();
+  const [page, setPage] = React.useState(Number(0));
 
-//   React.useEffect(() => {
-//     loadSavedIndex();
-//   }, []);
+  // const saveIndex = async (value) => {
+  //   try {
+  //     await AsyncStorage.setItem("savedIndex", value.toString());
+  //     setPage(value);
+  //   } catch (e) {
+  //     console.log("Error saving index", e);
+  //   }
+  // };
 
-//   const loadSavedIndex = async () => {
-//     try {
-//       const savedIndex = await AsyncStorage.getItem("savedIndex");
-//       if(savedIndex !== null){
-//         setPage(Number(savedIndex))
-//       }
-//     } catch (e) {
-//       console.log(e);
-//     }
-//   };
+  // const handleScroll = (event) => {
+  //   const { x } = event.nativeEvent.contentOffset;
+  //   const currentIndex = Math.round(x / Dimensions.get("window").width);
+  //   // saveIndex(currentIndex);
+  // };
 
-//   const saveIndex = async (value) => {
-//     try{
-//       await AsyncStorage.setItem("savedIndex", value.toString())
-//       setPage(value)
-//     }
-//     catch(e){
-//       console.log('Error saving index', e);
-//     }
-//   }
+  return (
+    <View style={styles.main}>
+      <View style={styles.container}>
+        <Card />
+        {/* <View style={styles.javshanContainer}>
+          <FlatList
+            data={JavshanItem}
+            renderItem={({ item }) => (
+              <OnboardingItem item={item} key={item.id} />
+            )}
+            showsHorizontalScrollIndicator={false}
+            horizontal
+            pagingEnabled
+            bounces={false}
+            keyExtractor={(item) => item.id}
+            onScroll={handleScroll}
+            initialScrollIndex={page}
+            initialNumToRender={100}
+          />
+        </View>
+        <View style={styles.javshanEndContainer}>
+          <Text>
+            Субхаанака йаа лаа илааа иллаа антал амаанал амаана холлиснаа
+            минан-наар
+          </Text>
+          <Text>{page + 1}/100</Text>
+        </View> */}
+      </View>
+    </View>
+  );
+};
 
-//   const handleScroll = (event) => {
-//     const { x } = event.nativeEvent.contentOffset;
-//     const currentIndex = Math.round(x / Dimensions.get("window").width);
-//     saveIndex(currentIndex)
-//   };
-
-//   return (
-//     <View style={gStyle.main}>
-//       {/* HEADER */}
-//       <View style={gStyle.header}>
-//         <Header title="ЖАВШАН" />
-//       </View>
-
-//       <View style={gStyle.container}>
-//         <View style={gStyle.javshanContainer}>
-//           <FlatList
-//             data={JavDua}
-//             renderItem={({ item }) => (
-//               <OnboardingItem item={item} key={item.id} />
-//             )}
-//             showsHorizontalScrollIndicator={false}
-//             horizontal
-//             pagingEnabled
-//             bounces={false}
-//             keyExtractor={(item) => item.id}
-//             onScroll={handleScroll}
-//             initialScrollIndex={page}
-//             // initialNumToRender={100}
-//           />
-//         </View>
-//         <View style={gStyle.javshanEndContainer}>
-//           <Text style={[gStyle.javshanEnd, { fontFamily: "Montserrat Semibold" }]}>
-//             Субхаанака йаа лаа илааа иллаа антал амаанал амаана холлиснаа
-//             минан-наар
-//           </Text>
-//           <Text style={[gStyle.javshanCounter,{ fontFamily: "Montserrat Semibold" },]}>
-//             {page + 1}/100
-//           </Text>
-//         </View>
-//       </View>
-//     </View>
-//   );
-// };
+const styles = StyleSheet.create({
+  main: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#320548",
+  },
+  container: {
+    paddingHorizontal: 12,
+    paddingVertical: 20,
+    paddingBottom: 100,
+  },
+});
