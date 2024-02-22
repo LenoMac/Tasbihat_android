@@ -47,6 +47,6 @@ const styles = StyleSheet.create({
     btn_container: {
         display: 'flex',
         flexDirection: 'column',
-        gap: 18,
+        gap: 20,
     }
 })

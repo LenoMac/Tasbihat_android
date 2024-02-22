@@ -1,29 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Text,
   Image,
   View,
   ScrollView,
   StyleSheet,
+  ActivityIndicator,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import Menu_buttons from "../../molecules/menu_buttons/Menu_buttons";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
 // // Импорт Лого и изображении
 import Logo from "../../../assets/img/Logo.png";
 import Language from "../../atoms/language/Language";
 
 // Импорт языка
-import useLanguageState from "../../../states/language/useLanguageState"
+import { useLanguageState } from "../../../states/language/useLanguageState";
 export const Menu = () => {
-  const navigation = useNavigation();
+  const { lang, setLang, loadLanguage } = useLanguageState();
+  useEffect(() => {
+    const fetchData = async () => {
+      await loadLanguage();
+      // setLang(lang);
+    };
+    fetchData();
+  }, [lang, setLang, loadLanguage]);
+
+  if (lang === null)
+    return (
+      <View style={styles.loadPage}>
+        <ActivityIndicator size="50px" color="#7100A9" />
+      </View>
+    );
 
   return (
     <ScrollView style={styles.container}>
       <View style={styles.container_row}>
         <Image style={styles.logo} source={Logo} />
-        <Text style={styles.title}>НАМАЗ ТАСБИХАТЫ</Text>
+        <Text style={styles.title}>ТАСБИХАТ</Text>
         <Language />
         <Menu_buttons />
       </View>
@@ -123,7 +137,16 @@ const styles = StyleSheet.create({
   title: {
     color: "#F2BB4A",
     fontSize: 23,
-    fontWeight: "600",
     textAlign: "center",
+    fontFamily: "Bold",
+  },
+  loadPage: {
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#320548",
   },
 });

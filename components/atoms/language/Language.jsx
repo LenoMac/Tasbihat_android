@@ -3,23 +3,22 @@ import { useState } from "react";
 import kyrgyz from "../../../assets/img/kg.png";
 import rus from "../../../assets/img/rus.png";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useLanguageState } from "../../../states/language/useLanguageState";
+
 export default function Language() {
-  const [active, setActive] = useState(true);
-  // const languageState = useLanguageState();
+  const [active, setActive] = useState("kg");
 
   const handleChangeLanguageToKyrgyz = () => {
     submitLanguage("kg");
-    setActive(true);
+    setActive("kg");
   };
   const handleChangeLanguageToRu = () => {
     submitLanguage("ru");
-    setActive(false);
+    setActive("ru");
   };
 
   const submitLanguage = async (value) => {
     try {
-      await AsyncStorage.setItem("currentLanguage", value);
+      await AsyncStorage.setItem("language", value);
       console.log("🆗");
     } catch (e) {
       console.log("Error saving language", e);
@@ -31,7 +30,7 @@ export default function Language() {
       <Pressable onPress={handleChangeLanguageToKyrgyz}>
         <View style={styles.language_container_row}>
           <Image style={styles.img} source={kyrgyz} />
-          <Text style={active == true ? styles.active : styles.title}>
+          <Text style={active == "kg" ? styles.active : styles.title}>
             Кыргызча
           </Text>
         </View>
@@ -39,7 +38,7 @@ export default function Language() {
       <Pressable onPress={handleChangeLanguageToRu}>
         <View style={styles.language_container_row}>
           <Image style={styles.img} source={rus} />
-          <Text style={active == false ? styles.active : styles.title}>
+          <Text style={active == "ru" ? styles.active : styles.title}>
             Русский
           </Text>
         </View>
@@ -73,11 +72,13 @@ const styles = StyleSheet.create({
   title: {
     color: "white",
     fontWeight: "600",
-    fontSize: 16,
+    fontSize: 14,
+    fontFamily: "Bold",
   },
   active: {
     color: "yellow",
     fontWeight: "600",
-    fontSize: 16,
+    fontSize: 14,
+    fontFamily: "Bold",
   },
 });

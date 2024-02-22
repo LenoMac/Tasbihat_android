@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "flex-start",
     paddingVertical: 16,
-    borderRadius: 20,
+    borderRadius: 15,
     height: 60,
     display: 'flex',
     flexDirection: 'row',
@@ -41,8 +41,9 @@ const styles = StyleSheet.create({
   },
   title: {
     color: "white",
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: "600",
+    fontFamily: "Bold"
   },
   img: {
     objectFit: "scale-down",
