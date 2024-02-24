@@ -1,4 +1,4 @@
-const JavDua = [
+const JavshanItem = [
   {
     id: 1,
     firstText: "Аллахумма иннии ас'алука би асмааика",
@@ -1293,4 +1293,5 @@ const JavDua = [
       "Субхаанака йаа лаа илааа иллаа антал амаанал амаана холлиснаа минан-наар",
   },
 ];
-export default JavDua;
+
+export default JavshanItem

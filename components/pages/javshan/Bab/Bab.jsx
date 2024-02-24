@@ -1,13 +1,29 @@
-import { View, Text } from "react-native";
-import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
+import React, { useEffect, useState } from "react";
+import JavshanItem from "../JavshanItem";
 
-const Stack = createNativeStackNavigator();
-
-export default function Bab() {
+export const Bab = React.memo(({ route }) => {
+  const { page } = route.params;
+  const babItem = JavshanItem.find((item) => item.id === page);
   return (
-    <View>
-      <Text>Bab</Text>
+    <View style={styles.main}>
+      <View style={styles.container}>
+        <View style={styles.card}>
+          <Text>{babItem.firstText}</Text>
+        </View>
+      </View>
     </View>
   );
-}
+});
+
+const styles = StyleSheet.create({
+  main: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#320548",
+  },
+  container: {
+    paddingHorizontal: 12,
+  },
+  card: {},
+});

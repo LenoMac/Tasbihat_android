@@ -15,7 +15,7 @@ import { Magrib } from "./components/pages/magrib/Magrib";
 import home from "./assets/img/Home.png";
 import React from "react";
 import { Image } from "react-native";
-import Bab from "./components/pages/javshan/Bab/Bab";
+import {Bab} from "./components/pages/javshan/Bab/Bab";
 // Импорт Суры
 import Al_Fatiha from "./components/pages/SurScreens/Al_Fatiha";
 import Al_Asr from "./components/pages/SurScreens/Al_Asr";

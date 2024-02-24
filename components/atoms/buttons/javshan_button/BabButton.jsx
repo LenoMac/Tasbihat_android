@@ -1,12 +1,12 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 
 export default function BabButton({ num, number, setNumber }) {
   const navigation = useNavigation();
 
   const handleClick = () => {
-    navigation.push("Bab");
+    navigation.navigate("Bab", {page: num});
     setNumber(num);
   };
 
