@@ -28,7 +28,7 @@ export const Shahada = () => {
             <Text style={styles.rusText}>
               {lang === "kg"
                 ? "Аллахтан башка сыйынууга татыктуу зат жок жана Мухаммад анын кулу жана элчиси экендигине күбөлүк берем."
-                : "Я свидетельствую что "}
+                : "Я свидетельствую, что нет никого достойного поклонения, кроме Аллаха. И я свидетельствую, что Мухаммад — Его раб и Посланник."}
             </Text>
           </View>
         </View>
@@ -57,11 +57,13 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: "center",
     color: "white",
+    fontFamily: 'Medium'
   },
   rusText: {
-    fontSize: 20,
+    fontSize: 18,
     textAlign: "center",
     color: "white",
     lineHeight: 28,
+    fontFamily: 'Medium'
   },
 });

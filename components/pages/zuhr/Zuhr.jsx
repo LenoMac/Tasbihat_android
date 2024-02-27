@@ -10,7 +10,7 @@ import {
 import SoundArea from "../../atoms/players/SoundArea";
 import HighlightText from "@sanar/react-native-highlight-text";
 
-export const Zuhr = () => {
+export const Zuhr = React.memo(() => {
   const audioTrack = require("../../../assets/audio/Beshim.mp3");
   const data = require("../../../assets/highlightedWords/highlighted.json");
   const zuhrText = `Зухр намаздын парзы окулуп, салам берилгенден кийин:
@@ -146,7 +146,7 @@ export const Zuhr = () => {
       </View>
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   zurh: {
