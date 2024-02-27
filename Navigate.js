@@ -6,7 +6,7 @@ import { Tasbihat } from "./components/pages/tasbihat/Tasbihat";
 import { Sur } from "./components/pages/sur/Sur";
 import Prayer from "./components/pages/dua/Prayer";
 import { Javshan } from "./components/pages/javshan/Javshan";
-import { Tafrijia } from "./components/pages/tafrijia/Tafrijia";
+import Tafrijia from "./components/pages/tafrijia/Tafrijia";
 import { Fajr } from "./components/pages/fajr/Fajr";
 import { Zuhr } from "./components/pages/zuhr/Zuhr";
 import { Asr } from "./components/pages/asr/Asr";
@@ -41,7 +41,7 @@ const screens = [
   { name: "Sur", title: "СУРЫ", component: Sur, id: "1" },
   { name: "Prayer", title: "МОЛИТВЫ", component: Prayer, id: "1" },
   { name: "Javshan", title: "ЖАВШАН", component: Javshan, id: "1" },
-  // { name: "Tafrijia", title: "ТАФРИЖИЯ", component: Tafrijia, id: "1" },
+  { name: "Tafrijia", title: "ТАФРИЖИЯ", component: Tafrijia, id: "1" },
   // { name: "About", title: "О НАС", component: About, id: "1" },
   { name: "Fajr", title: "ФАДЖР", component: Fajr, id: "1" },
   { name: "Zuhr", title: "ЗУХР", component: Zuhr, id: "1" },

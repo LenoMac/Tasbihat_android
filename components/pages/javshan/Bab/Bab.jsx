@@ -6,7 +6,7 @@ import {
   ScrollView,
   Pressable,
   ImageBackground,
-} from "react-native";
+} from "react-native"; 
 import React, { useState } from "react";
 import { JavshanItem } from "../JavshanItem";
 import Mecca from "../../../../assets/backgrouds/Mecca.jpg";
@@ -19,6 +19,9 @@ export const Bab = React.memo(({ route }) => {
   const babItem = JavshanItem.find((item) => item.id === currentPage);
 
   const goAhead = () => {
+    if(currentPage >= 99){
+      setCurrentPage(99)
+    }
     setCurrentPage((prev) => prev + 1);
   };
   const goBack = () => {
@@ -35,18 +38,16 @@ export const Bab = React.memo(({ route }) => {
         resizeMode="cover"
       >
         <View style={styles.container}>
-          <Pressable>
-            <View style={styles.card}>
-              <ScrollView style={styles.scroll}>
-                <Text style={styles.title}>{currentPage}-БАБ</Text>
-                {babItem.firstText ? (
-                  <Text style={styles.subtitle}>{babItem.firstText}</Text>
-                ) : null}
-                <Text style={styles.text}>{babItem.javshantext}</Text>
-                <Text style={styles.endText}>{babItem.secondText}</Text>
-              </ScrollView>
-            </View>
-          </Pressable>
+          <View style={styles.card}>
+            <ScrollView style={styles.scroll}>
+              <Text style={styles.title}>{currentPage}-БАБ</Text>
+              {babItem.firstText ? (
+                <Text style={styles.subtitle}>{babItem.firstText}</Text>
+              ) : null}
+              <Text style={styles.text}>{babItem.javshantext}</Text>
+              <Text style={styles.endText}>{babItem.secondText}</Text>
+            </ScrollView>
+          </View>
         </View>
         <View style={styles.buttons}>
           <Pressable onPress={goBack}>
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 18,
-    lineHeight: 30,
+    lineHeight: 25,
     fontFamily: "Medium",
     color: "white",
   },

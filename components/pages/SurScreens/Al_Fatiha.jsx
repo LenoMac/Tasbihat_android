@@ -2,6 +2,7 @@ import { View, ScrollView, StyleSheet } from "react-native";
 import React from "react";
 import SurSample from "../../molecules/sur-sample/SurSample";
 import { useLanguageState } from "../../../states/language/useLanguageState";
+
 const arabicText = `(1).بِسْمِ اللّهِ الرَّحْمنِ الرَّحِيمِ
 (2).الْحَمْدُ للّهِ رَبِّ الْعَالَمِينَ
 (3).الرَّحْمنِ الرَّحِيمِ
@@ -36,7 +37,7 @@ const meaningRusText = `(1). Во имя Аллаха, Милостивого, �
 (7). путем тех, кого Ты облагодетельствовал, не тех, на кого пал гнев, и не заблудших`;
 
 export default function Al_Fatiha() {
-  const { lang, loadLanguage } = useLanguageState();
+  const { lang } = useLanguageState();
 
   return (
     <View style={styles.main}>

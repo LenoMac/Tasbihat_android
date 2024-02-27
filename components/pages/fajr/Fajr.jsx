@@ -4,7 +4,7 @@ import SoundArea from "../../atoms/players/SoundArea";
 import HighlightText from "@sanar/react-native-highlight-text";
 // import RNFS from "react-native-fs";
 // import filePath from "../../../assets/files/Fajr.txt";
-export const Fajr = () => {
+export const Fajr = React.memo(() => {
   const [isFileText, setFileText] = useState(null);
   const audioTrack = require("../../../assets/audio/Fajr.mp3");
   const data = require("../../../assets/highlightedWords/highlighted.json");
@@ -248,7 +248,7 @@ export const Fajr = () => {
       </View>
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   fajr: {
@@ -264,7 +264,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     fontFamily: "Medium",
-    color: 'white',
-    lineHeight: 22
+    color: "white",
+    lineHeight: 22,
   },
 });

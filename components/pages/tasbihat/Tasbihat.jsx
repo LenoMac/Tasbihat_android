@@ -56,6 +56,6 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         gap: 20,
-        marginTop: 50
+        marginTop: 100
     }
 })

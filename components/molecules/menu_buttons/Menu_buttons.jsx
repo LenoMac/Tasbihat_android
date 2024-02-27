@@ -38,7 +38,7 @@ export default function Menu_buttons() {
           />
         )
       })}
-      <Secondary  title="О приложений"/>
+      {/* <Secondary  title="О приложений"/> */}
     </View>
   );
 }
