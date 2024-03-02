@@ -14,9 +14,13 @@ const rusText = `БисмиЛЛааҳир - Рохмаанир - Рохиим.
 (2). Фасолли ли-Роббика уанхар
 (3). 'Инна шаани-'ака ҳу-уал-'абтар`;
 
-const meaningText = `(1). Акыйкатта, Биз сага "Кавсарды" таттуу кылдык,
+const meaningKgText = `(1). Акыйкатта, Биз сага "Кавсарды" таттуу кылдык,
 (2). Эми Эгеңе (сыйынып) намаз оку жана курбандык чал
 (3). Ырасында, сени капаланткан - өзү шордуу`;
+
+const meaningRusText = `(1). Мы даровали тебе Изобилие (реку в Раю, которая называется аль-Каусар).
+(2). Посему совершай намаз ради своего Господа и закалывай жертву.
+(3). Воистину, твой ненавистник сам окажется бездетным.`;
 
 export default function AlKavsar() {
   return (
@@ -31,7 +35,7 @@ export default function AlKavsar() {
               title="Аль-Каусар"
               arabicText={arabicText}
               rusText={rusText}
-              meaningText={meaningText}
+              meaningText={lang === 'kg' ? meaningKgText : meaningRusText}
             />
           </View>
         </View>
