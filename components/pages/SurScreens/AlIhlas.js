@@ -16,11 +16,16 @@ const rusText = `БисмиЛЛааҳир - Рохмаанир - Рохиим
 (3). Лам йалид, уа лам йуулад
 (4). Уа лам йакул-ла-Ҳуу куфу-уан 'ахад`;
 
-const meaningText = `Ырайымдуу Мээримдүү Аллахтын аты менен (баштаймын)
+const meaningKgText = `Ырайымдуу Мээримдүү Аллахтын аты менен (баштаймын)
 (1). Айткын: Аллах Жалгыз!
 (2). Аллах эч кимге муктаж эмес!
 (3). (Ал) төрөбөгөн жана төрөлбөгөн
 (4). Ага эч ким теңдеш эмес`;
+
+const meaningRusText = `(1). Скажи: «Он – Аллах Единый,
+(2). Аллах Самодостаточный.
+(3). Он не родил и не был рожден,
+(4). и нет никого, равного Ему».`;
 
 export default function AlIhlas() {
   return (
@@ -35,7 +40,7 @@ export default function AlIhlas() {
               title="Ал-Ихлас"
               arabicText={arabicText}
               rusText={rusText}
-              meaningText={meaningText}
+              meaningText={lang === 'kg' ? meaningKgText : meaningRusText}
             />
           </View>
         </View>
