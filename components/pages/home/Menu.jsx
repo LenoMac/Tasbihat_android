@@ -36,8 +36,6 @@ export const Menu = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.container_row}>
-        <Image style={styles.logo} source={Logo} />
-        <Text style={styles.title}>ТАСБИХАТ</Text>
         <Language />
         <Menu_buttons />
       </View>
@@ -55,7 +53,7 @@ const styles = StyleSheet.create({
   container_row: {
     display: "flex",
     flexDirection: "column",
-    paddingTop: 30,
+    paddingTop: 60,
     gap: 20,
   },
   logo: {

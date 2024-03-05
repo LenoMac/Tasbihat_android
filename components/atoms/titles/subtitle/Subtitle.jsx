@@ -9,6 +9,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontFamily: "Bold",
-    color: "yellow",
+    color: "#F2BB4A",
   },
 });
