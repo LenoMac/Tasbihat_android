@@ -42,7 +42,6 @@ const screens = [
   { name: "Prayer", title: "МОЛИТВЫ", component: Prayer, id: "1" },
   { name: "Javshan", title: "ЖАВШАН", component: Javshan, id: "1" },
   { name: "Tafrijia", title: "ТАФРИЖИЯ", component: Tafrijia, id: "1" },
-  // { name: "About", title: "О НАС", component: About, id: "1" },
   { name: "Fajr", title: "ФАДЖР", component: Fajr, id: "1" },
   { name: "Zuhr", title: "ЗУХР", component: Zuhr, id: "1" },
   { name: "Asr", title: "АСР", component: Asr, id: "1" },
@@ -55,7 +54,7 @@ const screens = [
 
 function Navigate() {
   return (
-    <NavigationContainer>
+    
       <Stack.Navigator>
         <Stack.Screen
           name="Menu"
@@ -87,7 +86,6 @@ function Navigate() {
           );
         })}
       </Stack.Navigator>
-    </NavigationContainer>
   );
 }
 

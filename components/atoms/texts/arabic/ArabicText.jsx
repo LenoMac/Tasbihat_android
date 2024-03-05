@@ -12,7 +12,8 @@ export default function ArabicText({ text }) {
 const styles = StyleSheet.create({
   text: {
     color: "white",
-    fontSize: 28,
+    fontSize: 26,
     textAlign: "right",
+    fontFamily: 'ArabicMedium'
   },
 });

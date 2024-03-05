@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: "center",
     color: "white",
-    fontFamily: 'Medium'
+    fontFamily: 'ArabicMedium'
   },
   rusText: {
     fontSize: 18,
