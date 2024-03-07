@@ -17,26 +17,16 @@ import ishaNoneActive from "../../../assets/icons/nonactive-isha.png";
 import { useState } from "react/cjs/react.production.min";
 
 export default function Times() {
-  const [hour, setHour] = React.useState();
-  const [minute, setMinute] = React.useState();
-  const [second, setSecond] = React.useState();
-
-  const date = new Date();
-  const currentHour = date.getHours();
-  const currentMinutes = date.getMinutes();
-  const currentSecond = date.getSeconds();
-
-//   setInterval(() => {
-//     setHour(currentHour);
-//     setMinute(currentMinutes);
-//     setSecond(currentSecond);
-//   }, 1000);
-
   return (
     <View style={styles.block}>
       <View style={styles.times}>
         <Text style={styles.prayerName}>Магриб</Text>
-        <Clock style={styles.prayerTime} format={'HH:mm:ss'} ticking={true} element={Text} />
+        <Clock
+          style={styles.prayerTime}
+          format={"HH:mm:ss"}
+          ticking={true}
+          element={Text}
+        />
       </View>
       <View style={styles.timesList}>
         {/* times */}
@@ -82,7 +72,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#5D2559",
     height: 180,
     width: "100%",
-    borderColor: "#900B9A",
+    borderColor: "rgba(113, 43, 108, .6)",
     borderWidth: 1,
     borderRadius: 20,
     overflow: "hidden",
@@ -105,7 +95,7 @@ const styles = StyleSheet.create({
     fontFamily: "Bold",
     fontSize: 26,
     width: 150,
-    textAlign: 'center'
+    textAlign: "center",
   },
   timesList: {
     width: "100%",
