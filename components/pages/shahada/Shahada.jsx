@@ -5,7 +5,7 @@ import ShahadaLogo from "../../../assets/img/Shaha_logo.png";
 import { useLanguageState } from "../../../states/language/useLanguageState";
 
 export const Shahada = () => {
-  const {lang, loadLanguage} = useLanguageState();
+  const { lang, loadLanguage } = useLanguageState();
   return (
     <View style={styles.shahada}>
       <ScrollView>
@@ -57,13 +57,13 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: "center",
     color: "white",
-    fontFamily: 'ArabicMedium'
+    fontFamily: "ArabicMedium",
   },
   rusText: {
     fontSize: 18,
     textAlign: "center",
     color: "white",
     lineHeight: 28,
-    fontFamily: 'Medium'
+    fontFamily: "Medium",
   },
 });
