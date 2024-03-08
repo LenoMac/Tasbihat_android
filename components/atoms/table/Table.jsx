@@ -6,52 +6,20 @@ import {
   FlatList,
   ActivityIndicator,
 } from "react-native";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Table, Row } from "react-native-table-component";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import PrayerTimes from "../../../api/index";
-import data from "../../../data/time.json"
+
 export default function TableComponents() {
   const tableHead = ["Рамадан", "Дата", "Сухур", "Ифтар"];
-  const [datas, setDatas] = useState([]);
-  // const { loadTimes } = PrayerTimes();
-
-  // useEffect(() => {
-  //   async function Fetch() {
-  //     await loadSavedTimes();
-  //     if (!datas.length) {
-  //       await loadTimes();
-  //     }
-  //   }
-  //   Fetch();
-  // }, []);
-
-  // const loadSavedTimes = async () => {
-  //   try {
-  //     const response = await AsyncStorage.getItem("times");
-  //     if (response !== null) setDatas(JSON.parse(response));
-  //     else {
-  //       console.log("Is empty :(");
-  //     }
-  //     console.log(datas);
-  //   } catch (e) {
-  //     console.log("Error loading times", e);
-  //   }
-  // };
-  // const deleteItem = async() => {
-  //   try{
-  //     const response = await AsyncStorage.removeItem("times")
-  //     console.log(response);
-  //   }
-  //   catch(e){}
-  // }
+  const { datas, loading } = PrayerTimes();
   return (
     <View style={styles.main}>
-      {/* <Button title="Get" onPress={loadTimes} /> */}
+      {/* <Button title="Get" /> */}
       {/* <Button title="Reset" onPress={deleteItem}/> */}
-      {!data.length ? (
+      {/* {!datas.length ? (
         <ActivityIndicator color="#5D2559" size="large" />
-      ) : (
+      ) : ( */}
         <>
           <Table
             style={styles.table}
@@ -64,7 +32,7 @@ export default function TableComponents() {
             />
           </Table>
           <FlatList
-            data={data}
+            data={datas.slice(10)}
             // keyExtractor={(item) => item.id.toString()} // Используйте уникальный идентификатор
             renderItem={({ item, index }) => (
               <View key={index} style={styles.headerBody}>
@@ -76,7 +44,7 @@ export default function TableComponents() {
             )}
           />
         </>
-      )}
+      {/* )} */}
     </View>
   );
 }
