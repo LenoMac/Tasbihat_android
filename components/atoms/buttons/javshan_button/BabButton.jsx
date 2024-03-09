@@ -21,11 +21,11 @@ export default function BabButton({ num, number, setNumber }) {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: "#7100A9",
+    backgroundColor: "#5D2559",
     paddingHorizontal: 15,
     paddingVertical: 10,
     borderRadius: 10,
-    width: "100%",
+    width: 180,
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",

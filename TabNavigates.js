@@ -8,6 +8,7 @@ import Quran from "./components/pages/quran/Quran";
 import { Foundation } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
+import HomeNavigates from "./HomeNavigates";
 
 const Tab = createBottomTabNavigator();
 const screenOptions = {
@@ -41,7 +42,7 @@ export default function TabNavigates() {
           },
         }}
         name="home"
-        component={Home}
+        component={HomeNavigates}
       />
       <Tab.Screen
         options={{

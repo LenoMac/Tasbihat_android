@@ -27,7 +27,7 @@ export default function Home() {
       <View style={styles.container}>
         {/* Background */}
         <Image style={styles.backgroundImg} source={RamadanImg} />
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView overScrollMode='never' showsVerticalScrollIndicator={false}>
           <View>
             <Subtitle title="Рамадан 2024" />
             <Text style={styles.description}>
@@ -47,15 +47,16 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "#2E0A30",
     height: "100%",
-    paddingTop: 60,
+    paddingTop: 35,
   },
   container: {
     paddingHorizontal: 12,
+    paddingTop: 10
   },
   backgroundImg: {
     position: "absolute",
     right: 0,
-    top: -60,
+    top: -40,
   },
   description: {
     color: "white",

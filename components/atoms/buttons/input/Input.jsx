@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     padding: 12,
     borderRadius: 15,
-    backgroundColor: "#4D1369",
+    backgroundColor: "#431146",
   },
   input: {
     fontFamily: "Medium",

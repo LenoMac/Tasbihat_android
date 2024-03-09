@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     paddingHorizontal: 12,
-    backgroundColor: "#320548",
+    backgroundColor: "#2E0A30",
   },
   container_row: {
     display: "flex",

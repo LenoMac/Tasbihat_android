@@ -1,5 +1,5 @@
 import { View, Text, Image, StyleSheet } from "react-native";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Clock from "react-live-clock";
 // Импорт лого
 import fajrActive from "../../../assets/icons/active-fajr.png";
@@ -14,9 +14,22 @@ import magribActive from "../../../assets/icons/active-magrib.png";
 import magribNoneActive from "../../../assets/icons/nonactive-magrib.png";
 import ishaActive from "../../../assets/icons/active-isha.png";
 import ishaNoneActive from "../../../assets/icons/nonactive-isha.png";
-import { useState } from "react/cjs/react.production.min";
-
+// Время намаза
+import PrayerTimes from "../../../api";
 export default function Times() {
+  const { datas } = PrayerTimes();
+  const [fajrTime, setFajrTime] = useState("");
+  const [sunriseTime, setSunriseTime] = useState("");
+  const [zuhrTime, setZuhrTime] = useState("");
+  const [asrTime, setAsrTime] = useState("");
+  const [magribTime, setMagribTime] = useState("");
+  const [ishaTime, setIshaTime] = useState("");
+
+  // useEffect(() => {
+  //   setFajrTime(datas[0].Fajr.substr(0, 5))
+  //   console.log(fajrTime);
+  // }, [])
+
   return (
     <View style={styles.block}>
       <View style={styles.times}>
@@ -33,7 +46,7 @@ export default function Times() {
         <View style={styles.time}>
           <Text style={styles.title}>Фаджр</Text>
           <Image source={fajrActive} />
-          <Text style={styles.dispazone}>06 : 00</Text>
+          <Text style={styles.dispazone}>{fajrTime}</Text>
         </View>
         <View style={styles.time}>
           <Text style={styles.title}>Восход</Text>

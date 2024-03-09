@@ -2,24 +2,37 @@ import {
   View,
   Text,
   StyleSheet,
-  Button,
   FlatList,
   ActivityIndicator,
+  Pressable,
+  Appearance,
 } from "react-native";
 import React from "react";
 import { Table, Row } from "react-native-table-component";
 import PrayerTimes from "../../../api/index";
+import { useNavigation } from "@react-navigation/native";
+const colorScheme = Appearance.getColorScheme();
+const darkMode = colorScheme === "dark";
 
 export default function TableComponents() {
   const tableHead = ["Рамадан", "Дата", "Сухур", "Ифтар"];
   const { datas, loading } = PrayerTimes();
+  const navigation = useNavigation()
+  const CalendarButton = ({ title }) => {
+    return (
+      <Pressable onPress={() => navigation.navigate("Calendar")}>
+        <View style={styles.calendarButton}>
+          <Text style={styles.calendarButtonText}>{title}</Text>
+        </View>
+      </Pressable>
+    );
+  };
+
   return (
     <View style={styles.main}>
-      {/* <Button title="Get" /> */}
-      {/* <Button title="Reset" onPress={deleteItem}/> */}
-      {/* {!datas.length ? (
+      {!datas.length ? (
         <ActivityIndicator color="#5D2559" size="large" />
-      ) : ( */}
+      ) : (
         <>
           <Table
             style={styles.table}
@@ -43,8 +56,9 @@ export default function TableComponents() {
               </View>
             )}
           />
+          <CalendarButton title="Посмотреть на календаре" />
         </>
-      {/* )} */}
+      )}
     </View>
   );
 }
@@ -87,5 +101,18 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 16,
     fontFamily: "Medium",
+  },
+  calendarButton: {
+    backgroundColor: "#F2BB4A",
+    marginTop: 16,
+    paddingVertical: 16,
+    elevation: 10,
+    borderRadius: 100,
+  },
+  calendarButtonText: {
+    alignItems: "center",
+    fontFamily: "Bold",
+    textAlign: "center",
+    fontSize: 18
   },
 });
