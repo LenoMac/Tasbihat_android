@@ -1,4 +1,3 @@
-import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Menu } from "./components/pages/home/Menu";
 import { Shahada } from "./components/pages/shahada/Shahada";
@@ -19,7 +18,6 @@ import { Bab } from "./components/pages/javshan/Bab/Bab";
 // Импорт Суры
 import Al_Fatiha from "./components/pages/SurScreens/Al_Fatiha";
 import Al_Asr from "./components/pages/SurScreens/Al_Asr";
-
 // Импорт О нас
 // import AlHumaza from "./SurScreens/AlHumaza"
 // import AlFil from "./SurScreens/AlFil"
@@ -33,8 +31,9 @@ import Al_Asr from "./components/pages/SurScreens/Al_Asr";
 // import AlFalak from "./SurScreens/AlFalak"
 // import AnNas from "./SurScreens/AnNas"
 import About from "./components/pages/about-app/About";
-const Stack = createNativeStackNavigator();
 
+
+const Stack = createNativeStackNavigator();
 const screens = [
   { name: "Shahada", title: "ШАХАДА", component: Shahada, id: "1" },
   { name: "Tasbihat", title: "ТАСБИХАТ", component: Tasbihat, id: "1" },
@@ -71,7 +70,7 @@ function Navigate() {
               component={item.component}
               options={{
                 title: `${item.title}`,
-                headerStyle: { backgroundColor: "#320548" },
+                headerStyle: { backgroundColor: "#2E0A30" },
                 headerTitleAlign: "center",
                 headerTitleStyle: { color: "white" },
                 headerTintColor: "white",

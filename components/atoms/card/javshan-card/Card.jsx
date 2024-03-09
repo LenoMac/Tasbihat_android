@@ -12,7 +12,7 @@ export default function Card() {
   const [number, setNumber] = React.useState();
   const [data, setData] = React.useState(initialData);
   const [filteredText, setFilteredText] = useState("");
-  
+
   const handleChangeText = (text) => {
     setFilteredText(text);
     filterData(text);
@@ -29,9 +29,11 @@ export default function Card() {
     <View style={styles.container}>
       <Input number={number} handleChangeText={handleChangeText} />
       <FlatList
+        showsVerticalScrollIndicator={false}
+        overScrollMode="never"
         style={styles.flatList}
         data={data}
-        // numColumns={2}
+        numColumns={2}
         renderItem={({ item }) => {
           return <BabButton setNumber={setNumber} num={item.item.number} />;
         }}
@@ -43,7 +45,7 @@ export default function Card() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: 20
+    paddingBottom: 20,
   },
   flatList: {
     marginTop: 10,

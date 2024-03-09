@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     tasbih: {
         width: '100%',
         height: '100%',
-        backgroundColor: '#320548'
+        backgroundColor: '#2E0A30'
     },
     container: {
         paddingHorizontal: 12,
