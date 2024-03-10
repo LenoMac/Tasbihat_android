@@ -1,6 +1,6 @@
 import { View, Text, Pressable, Image, StyleSheet } from "react-native";
 import React from "react";
-import Right from "../../../../assets/img/Right.png";
+import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 export default function SurButton({ number, name, title }) {
   const navigation = useNavigation();
@@ -13,7 +13,7 @@ export default function SurButton({ number, name, title }) {
           <Text style={styles.number}>{number + "."}</Text>
           <Text style={styles.title}>{title}</Text>
         </View>
-        <Image source={Right} />
+        <MaterialIcons name="keyboard-arrow-right" size={24} color="white" />
       </View>
     </Pressable>
   );
@@ -35,12 +35,12 @@ const styles = StyleSheet.create({
   },
   number: {
     width: 25,
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: "Medium",
     color: "white",
   },
   title: {
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: "Medium",
     color: "white",
   },

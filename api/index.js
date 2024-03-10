@@ -12,7 +12,6 @@ export default function PrayerTimes() {
       if (!cachedData.length) {
         setDatas(JSON.parse(cachedData));
         setLoading(false);
-        console.log("Data is true", datas);
       } else {
         const response = await fetch(
           "https://api.aladhan.com/v1/calendarByAddress/2024/3?address=Bishkek%&method=3"
@@ -21,7 +20,6 @@ export default function PrayerTimes() {
         const newDatas = data.data.map((item) => item.timings);
         await AsyncStorage.setItem("times", JSON.stringify(datas));
         setDatas(newDatas);
-        console.log(datas);
         console.log("Data is Empty");
       }
     } catch (error) {

@@ -39,7 +39,7 @@ export default function TableComponents() {
             borderStyle={{ borderWidth: 2, borderColor: "transparent" }}
           >
             <Row
-              textStyle={styles.text}
+              // textStyle={styles.text}
               style={styles.header}
               data={tableHead}
             />

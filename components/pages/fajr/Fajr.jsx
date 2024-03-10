@@ -234,7 +234,7 @@ export const Fajr = React.memo(() => {
           <View>
             <Text style={styles.text}>
               <HighlightText
-                highlightStyle={{ color: "yellow" }}
+                highlightStyle={{ color: "#F2BB4A" }}
                 searchWords={data.highlighted}
                 textToHighlight={fajrText}
               />

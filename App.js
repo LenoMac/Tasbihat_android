@@ -8,7 +8,7 @@ export default function App() {
   const [fonts] = useFonts({
     Medium: require("./assets/fonts/Montserrat-Medium.ttf"),
     Bold: require("./assets/fonts/Montserrat-SemiBold.ttf"),
-    ArabicMedium: require("./assets/fonts/Arabic-Medium.ttf") 
+    ArabicMedium: require("./assets/fonts/Arabic-Medium.ttf"),
   });
 
   if (!fonts)
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   App: {
     width: "100%",
     height: "100%",
-    backgroundColor: "#431247",
+    backgroundColor: "#2E0A30",
   },
   container: {
     padding: 12,
@@ -48,5 +48,6 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#2E0A30",
   },
 });

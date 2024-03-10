@@ -166,10 +166,10 @@ const styles = StyleSheet.create({
     gap: 15,
   },
   arabicText: {
-    fontSize: 28,
+    fontSize: 26,
     color: "white",
-    lineHeight: 42,
     textAlign: "right",
+    fontFamily: "ArabicMedium",
   },
   text: {
     color: "yellow",

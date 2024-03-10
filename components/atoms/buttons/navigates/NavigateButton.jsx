@@ -18,20 +18,20 @@ export default function NavigateButton({ onPress, title, img }) {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: "#7100A9",
+    backgroundColor: "#5D2559",
     width: "100%",
     alignItems: "flex-start",
     paddingVertical: 16,
     borderRadius: 15,
     height: 60,
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center'
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
   },
   button_row: {
-    display: 'flex',
-    width: '40%',
-    justifyContent: 'flex-start'
+    display: "flex",
+    width: "40%",
+    justifyContent: "flex-start",
   },
   button_row_in: {
     display: "flex",
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 16,
     fontWeight: "600",
-    fontFamily: "Bold"
+    fontFamily: "Bold",
   },
   img: {
     objectFit: "scale-down",
