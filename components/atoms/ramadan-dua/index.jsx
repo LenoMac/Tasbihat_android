@@ -85,17 +85,17 @@ const styles = StyleSheet.create({
     gap: 5,
   },
   title: {
-    color: "#F2BB4A",
+    color: "white",
     fontSize: 16,
     fontFamily: "Bold",
   },
   time: {
-    color: "#F2BB4A",
+    color: "white",
     fontSize: 26,
     fontFamily: "Bold",
   },
   location: {
-    color: "#F2BB4A",
+    color: "white",
     fontFamily: "Medium",
   },
   duas: {
