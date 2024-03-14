@@ -27,8 +27,8 @@ export default function Dua() {
               <Image style={{ width: 80, height: 80 }} source={suhur} />
             </View>
             <View style={styles.dua}>
-              <Text>Сухур</Text>
-              <Text>05:22</Text>
+              <Text style={styles.duaTitle}>Ифтар</Text>
+              <Text style={styles.duaTime}>05:22</Text>
               <Image style={{ width: 80, height: 80 }} source={iftar} />
             </View>
           </View>
@@ -61,17 +61,17 @@ const styles = StyleSheet.create({
     gap: 5,
   },
   title: {
-    color: "white",
+    color: "#F2BB4A",
     fontSize: 16,
     fontFamily: "Bold",
   },
   time: {
-    color: "white",
+    color: "#F2BB4A",
     fontSize: 26,
     fontFamily: "Bold",
   },
   location: {
-    color: "white",
+    color: "#F2BB4A",
     fontFamily: "Medium",
   },
   duas: {
@@ -84,4 +84,10 @@ const styles = StyleSheet.create({
     gap: 2,
     alignItems: "center",
   },
+  duaTitle: {
+    color: "#F2BB4A",
+  },
+  duaTime: {
+    color: "#F2BB4A",
+  }
 });

@@ -125,12 +125,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   title: {
-    color: "white",
+    color: "#F2BB4A",
     fontFamily: "Medium",
     fontSize: 14,
   },
   dispazone: {
-    color: "white",
+    color: "#F2BB4A",
     fontFamily: "Bold",
     fontSize: 14,
   },

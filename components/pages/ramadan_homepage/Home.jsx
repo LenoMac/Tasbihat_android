@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     top: -40,
   },
   description: {
-    color: "white",
+    color: "#F2BB4A",
     fontFamily: "Bold",
     fontSize: 14,
     marginTop: 5,
