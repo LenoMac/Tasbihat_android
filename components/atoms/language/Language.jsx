@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     fontFamily: "Bold",
   },
   active: {
-    color: "yellow",
+    color: "#F2BB4A",
     fontWeight: "600",
     fontSize: 14,
     fontFamily: "Bold",

@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     right: 0,
   },
   playArea: {
-    backgroundColor: "#7100A9",
+    backgroundColor: "#5D2559",
     width: "100%",
     alignSelf: "center",
     display: "flex",

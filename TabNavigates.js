@@ -1,9 +1,9 @@
-import { Text, View } from "react-native";
+import { Text, View, Image } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "./components/pages/ramadan_homepage/Home";
 import Navigate from "./Navigate";
 import Quran from "./components/pages/quran/Quran";
-
+import shahadaLogo from "./assets/img/Shaha_logo.png"
 // Импорт иконки
 import { Foundation } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
@@ -17,7 +17,7 @@ const screenOptions = {
   tabBarStyle: {
     left: 0,
     right: 0,
-    height: 80,
+    height: 60,
     elevation: 10,
     borderColor: "#5D2559",
     backgroundColor: "#5D2559",
@@ -49,7 +49,8 @@ export default function TabNavigates() {
           tabBarIcon: ({ focused }) => {
             return (
               <Text>
-                <FontAwesome5 name="book-open" size={50} color="#F2BB4A" />
+                <FontAwesome5 name="book-open" size={40} color="white" />
+                {/* <Image style={{width: 80, height: 80, objectFit: 'scale-down'}} source={shahadaLogo}/> */}
               </Text>
             );
           },

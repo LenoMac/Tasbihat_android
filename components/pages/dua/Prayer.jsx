@@ -112,7 +112,7 @@ const Prayer = () => {
             {DuaData.map((value, index) => {
               return (
                 <View key={index} style={styles.duaContainer}>
-                  <Text style={styles.logo}>Logo</Text>
+                  <Text style={styles.logo}>{index + 1}-дуба</Text>
                   <Text style={styles.arabicText}>{value.arabicText}</Text>
                   <View style={styles.layout}>
                     <Text style={styles.text}>Транскрипция</Text>
@@ -158,7 +158,8 @@ const styles = StyleSheet.create({
   logo: {
     textAlign: "center",
     fontSize: 20,
-    color: "yellow",
+    color: "#F2BB4A",
+    fontFamily: 'Bold'
   },
   duaContainer: {
     display: "flex",
@@ -166,13 +167,13 @@ const styles = StyleSheet.create({
     gap: 15,
   },
   arabicText: {
-    fontSize: 28,
+    fontSize: 26,
     color: "white",
-    lineHeight: 42,
     textAlign: "right",
+    fontFamily: "ArabicMedium",
   },
   text: {
-    color: "yellow",
+    color: "#F2BB4A",
     fontSize: 18,
     fontFamily: "Bold",
   },

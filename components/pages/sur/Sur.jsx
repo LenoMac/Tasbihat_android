@@ -86,7 +86,7 @@ export const Sur = () => {
   const { lang, loadLanguage } = useLanguageState();
   return (
     <View style={styles.sur}>
-      <ScrollView>
+      <ScrollView overScrollMode="never">
         <View style={styles.container}>
           <View style={styles.btn_list}>
             {ListOfSur.map((item, index) => {

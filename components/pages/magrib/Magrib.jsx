@@ -166,7 +166,7 @@ export const Magrib = () => {
         <View style={styles.container}>
           <Text style={styles.text}>
             <HighlightText
-              highlightStyle={{ color: "yellow" }}
+              highlightStyle={{ color: "#F2BB4A" }}
               searchWords={data.highlighted}
               textToHighlight={magribText}
             />
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
   magrib: {
     width: "100%",
     height: "100%",
-    backgroundColor: "#320548",
+    backgroundColor: "#2E0A30",
   },
   container: {
     paddingHorizontal: 12,
