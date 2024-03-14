@@ -7,9 +7,8 @@ import {
   Vibration,
 } from "react-native";
 import React, { useState, useEffect } from "react";
-import zero from "../../../../assets/icons/zero.png";
-import top from "../../../../assets/icons/top.png";
-import bottom from "../../../../assets/icons/bottom.png";
+import { MaterialIcons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Counter() {
@@ -59,16 +58,20 @@ export default function Counter() {
       <View style={styles.counter_row}>
         <View style={styles.size_btns}>
           <Pressable onPress={handleMaximize}>
-            <Image source={top} />
+            <MaterialIcons name="keyboard-arrow-up" size={40} color="white" />
           </Pressable>
           {size >= 300 && (
             <Pressable onPress={handleMinimize}>
-              <Image source={bottom} />
+              <MaterialIcons
+                name="keyboard-arrow-down"
+                size={40}
+                color="white"
+              />
             </Pressable>
           )}
         </View>
         <Pressable onPress={handleZero}>
-          <Image source={zero} />
+          <AntDesign name="close" size={25} color="white" />
         </Pressable>
       </View>
       <Pressable onPress={handleCount}>
@@ -82,7 +85,7 @@ export default function Counter() {
 
 const styles = StyleSheet.create({
   counter: {
-    backgroundColor: "#7100A9",
+    backgroundColor: "#5D2559",
     position: "absolute",
     width: "100%",
     bottom: 0,
@@ -115,6 +118,5 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    gap: 10,
   },
 });

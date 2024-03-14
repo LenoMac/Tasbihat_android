@@ -74,12 +74,6 @@ function Navigate() {
                 headerTitleAlign: "center",
                 headerTitleStyle: { color: "white" },
                 headerTintColor: "white",
-                headerRight: () => (
-                  <Image
-                    style={{ width: 35, height: 35, objectFit: "scale-down" }}
-                    source={home}
-                  />
-                ),
               }}
             />
           );

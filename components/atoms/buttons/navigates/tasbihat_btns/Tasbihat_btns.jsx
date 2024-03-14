@@ -1,7 +1,7 @@
 import { View, Text, Pressable, Image, StyleSheet } from "react-native";
 import React from "react";
 
-export default function NavigateButton({ onPress, title, img }) {
+export default function TasbihatBtns({ onPress, title, img }) {
   return (
     <Pressable onPress={onPress}>
       <View style={styles.button}>
@@ -23,10 +23,11 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     paddingVertical: 16,
     borderRadius: 15,
-    height: 60,
+    height: 90,
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
+    alignItems: 'center'
   },
   button_row: {
     display: "flex",
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: "white",
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "600",
     fontFamily: "Bold",
   },

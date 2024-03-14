@@ -50,5 +50,6 @@ const styles = StyleSheet.create({
   flatList: {
     marginTop: 10,
     paddingBottom: 50,
+    alignSelf:'center'
   },
 });

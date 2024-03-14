@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   main: {
     width: "100%",
     height: "100%",
-    backgroundColor: "#320548",
+    backgroundColor: "#2E0A30",
   },
   container: {
     paddingHorizontal: 12,
@@ -111,6 +111,6 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 18,
     fontFamily: "Medium",
-    lineHeight: 25,
+    lineHeight: 30,
   },
 });

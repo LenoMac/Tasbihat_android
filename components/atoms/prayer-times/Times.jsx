@@ -1,6 +1,8 @@
 import { View, Text, Image, StyleSheet } from "react-native";
 import React, { useState, useEffect } from "react";
 import Clock from "react-live-clock";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import data from "../../../data/time.json";
 // Импорт лого
 import fajrActive from "../../../assets/icons/active-fajr.png";
 import fajrNoneActive from "../../../assets/icons/nonActive-fajr.png";
@@ -15,20 +17,54 @@ import magribNoneActive from "../../../assets/icons/nonactive-magrib.png";
 import ishaActive from "../../../assets/icons/active-isha.png";
 import ishaNoneActive from "../../../assets/icons/nonactive-isha.png";
 // Время намаза
-import PrayerTimes from "../../../api";
+import moment from "moment";
 export default function Times() {
-  const { datas } = PrayerTimes();
   const [fajrTime, setFajrTime] = useState("");
   const [sunriseTime, setSunriseTime] = useState("");
   const [zuhrTime, setZuhrTime] = useState("");
   const [asrTime, setAsrTime] = useState("");
   const [magribTime, setMagribTime] = useState("");
   const [ishaTime, setIshaTime] = useState("");
+  const currentTime = moment().format('HH:mm')
 
-  // useEffect(() => {
-  //   setFajrTime(datas[0].Fajr.substr(0, 5))
-  //   console.log(fajrTime);
-  // }, [])
+  useEffect(() => {
+    loadTimes();
+  }, [moment().date()]);
+
+  const dataOfTimes = [
+    {name: "Fajr", hours: +fajrTime.substr(0, 2), minutes: +fajrTime.substr(3, 5)},
+    {name: "Sunrise", hours: +sunriseTime.substr(0, 2), minutes: +fajrTime.substr(3, 5)},
+    {name: "Zuhr", hours: +zuhrTime.substr(0, 2), minutes: +fajrTime.substr(3, 5)},
+    {name: "Asr", hours: +asrTime.substr(0, 2), minutes: +fajrTime.substr(3, 5)},
+    {name: "Magrib", hours: +magribTime.substr(0, 2), minutes: +fajrTime.substr(3, 5)},
+    {name: "Isha", hours: +ishaTime.substr(0, 2), minutes: +fajrTime.substr(3, 5)},
+  ]
+  const loadTimes = async () => {
+    try {
+      // Фильтр по датам
+      const todayDate = data.find((item) => {
+        const currentDate = moment().format("DD-MM-YYYY");
+        if (item.date.gregorian.date === currentDate) return item.timings;
+      });
+      const todayPrayerTime = todayDate.timings;
+      if (todayDate) {
+        setFajrTime(todayPrayerTime.Fajr.substr(0, 5));
+        setSunriseTime(todayPrayerTime.Sunrise.substr(0, 5));
+        setZuhrTime(todayPrayerTime.Dhuhr.substr(0, 5));
+        setAsrTime(todayPrayerTime.Asr.substr(0, 5));
+        setMagribTime(todayPrayerTime.Maghrib.substr(0, 5));
+        setIshaTime(todayPrayerTime.Isha.substr(0, 5));
+        
+
+
+
+      } else {
+        console.log("Ошибка");
+      }
+    } catch (e) {
+      console.log("Error getting times", e);
+    }
+  };
 
   return (
     <View style={styles.block}>
@@ -45,33 +81,33 @@ export default function Times() {
         {/* times */}
         <View style={styles.time}>
           <Text style={styles.title}>Фаджр</Text>
-          <Image source={fajrActive} />
+          <Image source={currentTime !== ishaTime ? fajrNoneActive : fajrActive} />
           <Text style={styles.dispazone}>{fajrTime}</Text>
         </View>
         <View style={styles.time}>
           <Text style={styles.title}>Восход</Text>
-          <Image source={fajrNoneActive} />
-          <Text style={styles.dispazone}>06 : 00</Text>
+          <Image source={currentTime !== zuhrTime ? sunriseNoneActive : activeSunrise} />
+          <Text style={styles.dispazone}>{sunriseTime}</Text>
         </View>
         <View style={styles.time}>
           <Text style={styles.title}>Зухр</Text>
-          <Image source={zuhrActive} />
-          <Text style={styles.dispazone}>06 : 00</Text>
+          <Image source={currentTime !== asrTime ? zuhrNoneActive : zuhrActive} />
+          <Text style={styles.dispazone}>{zuhrTime}</Text>
         </View>
         <View style={styles.time}>
           <Text style={styles.title}>Аср</Text>
-          <Image source={asrActive} />
-          <Text style={styles.dispazone}>06 : 00</Text>
+          <Image source={currentTime !== magribTime ? asrNoneActive : asrActive} />
+          <Text style={styles.dispazone}>{asrTime}</Text>
         </View>
         <View style={styles.time}>
           <Text style={styles.title}>Магриб</Text>
-          <Image source={fajrNoneActive} />
-          <Text style={styles.dispazone}>06 : 00</Text>
+          <Image source={currentTime !== ishaTime ? magribNoneActive : magribActive} />
+          <Text style={styles.dispazone}>{magribTime}</Text>
         </View>
         <View style={styles.time}>
           <Text style={styles.title}>Иша</Text>
-          <Image source={ishaActive} />
-          <Text style={styles.dispazone}>06 : 00</Text>
+          <Image source={currentTime !== fajrTime ? ishaActive : ishaNoneActive} />
+          <Text style={styles.dispazone}>{ishaTime}</Text>
         </View>
       </View>
     </View>

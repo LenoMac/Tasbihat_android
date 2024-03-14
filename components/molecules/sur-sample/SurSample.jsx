@@ -42,11 +42,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Bold',
   },
   surArabic: {
-    fontSize: 28,
+    fontSize: 26,
     color:'white',
-    lineHeight: 42,
+    lineHeight: 45,
     textAlign: 'right',
-    fontFamily: 'Medium',
+    fontFamily: 'ArabicMedium',
   },
   text: {
     color: 'yellow',

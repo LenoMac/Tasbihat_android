@@ -31,7 +31,7 @@ export default function Home() {
           <View>
             <Subtitle title="Рамадан 2024" />
             <Text style={styles.description}>
-              {day}, {date.getDate()} марта {"\n"}Бишкек, Кыргызстан{" "}
+              {day}, {date.getDate()} марта {"\n"} Бишкек, Кыргызстан
             </Text>
           </View>
           {/* Ramadan Times and Duas and Calendar */}
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   },
   container: {
     paddingHorizontal: 12,
-    paddingTop: 10
+    paddingTop: 20
   },
   backgroundImg: {
     position: "absolute",

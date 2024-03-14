@@ -17,21 +17,6 @@ import Language from "../../atoms/language/Language";
 // Импорт языка
 import { useLanguageState } from "../../../states/language/useLanguageState";
 export const Menu = () => {
-  const { lang, setLang, loadLanguage } = useLanguageState();
-  useEffect(() => {
-    const fetchData = async () => {
-      await loadLanguage();
-      // setLang(lang);
-    };
-    fetchData();
-  }, [lang, setLang, loadLanguage]);
-
-  if (lang === null)
-    return (
-      <View style={styles.loadPage}>
-        <ActivityIndicator size="50px" color="#7100A9" />
-      </View>
-    );
 
   return (
     <ScrollView style={styles.container}>
@@ -51,9 +36,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#2E0A30",
   },
   container_row: {
-    display: "flex",
     flexDirection: "column",
-    paddingTop: 60,
+    justifyContent: "center",
+    marginTop: 100,
     gap: 20,
   },
   logo: {
@@ -64,14 +49,5 @@ const styles = StyleSheet.create({
     fontSize: 23,
     textAlign: "center",
     fontFamily: "Bold",
-  },
-  loadPage: {
-    width: "100%",
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#320548",
   },
 });

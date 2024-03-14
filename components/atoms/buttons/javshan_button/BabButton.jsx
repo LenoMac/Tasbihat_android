@@ -1,4 +1,4 @@
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import { View, Text, Pressable, StyleSheet, Dimensions } from "react-native";
 import React, { useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 
@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     borderRadius: 10,
-    width: 180,
+    width: Dimensions.get('window').width / 2.225,
+    marginRight: 16,
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",

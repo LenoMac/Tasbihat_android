@@ -1,11 +1,36 @@
 import { View, Text, StyleSheet, Image, ImageBackground } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Clock from "react-live-clock";
 import background from "../../../assets/backgrouds/ramadan.jpg";
 import suhur from "../../../assets/icons/suhur.png";
 import iftar from "../../../assets/icons/iftar.png";
-
+import data from "../../../data/time.json";
+import moment from "moment";
 export default function Dua() {
+  const [fajrTime, setFajrTime] = useState("");
+  const [ishaTime, setIshaTime] = useState("");
+  const currentTime = moment().format("HH:mm");
+
+  useEffect(() => {
+    loadTimes();
+  }, [moment().date()]);
+
+  const loadTimes = async () => {
+    try {
+      const todayDate = data.find((item) => {
+        const currentDate = moment().format("DD-MM-YYYY");
+        if (item.date.gregorian.date === currentDate) return item.timings;
+      });
+      const todayPrayerTime = todayDate.timings;
+      if (todayDate) {
+        setFajrTime(todayPrayerTime.Fajr.substring(0, 5));
+        setIshaTime(todayPrayerTime.Isha.substring(0, 5));
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <View style={styles.block}>
       <ImageBackground source={background} resizeMode="cover">
@@ -18,17 +43,16 @@ export default function Dua() {
               format={"HH:mm:ss"}
               ticking={true}
             />
-            <Text style={styles.location}>Бишкек, Кыргызстан</Text>
           </View>
           <View style={styles.duas}>
             <View style={styles.dua}>
               <Text style={styles.duaTitle}>Сухур</Text>
-              <Text style={styles.duaTime}>05:22</Text>
+              <Text style={styles.duaTime}>{fajrTime}</Text>
               <Image style={{ width: 80, height: 80 }} source={suhur} />
             </View>
             <View style={styles.dua}>
               <Text style={styles.duaTitle}>Ифтар</Text>
-              <Text style={styles.duaTime}>05:22</Text>
+              <Text style={styles.duaTime}>{ishaTime}</Text>
               <Image style={{ width: 80, height: 80 }} source={iftar} />
             </View>
           </View>
@@ -85,9 +109,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   duaTitle: {
-    color: "#F2BB4A",
+    color: 'white',
+    fontFamily: 'Medium',
+    fontSize: 16
   },
   duaTime: {
-    color: "#F2BB4A",
+    color: 'white',
+    fontFamily: 'Bold',
+    fontSize: 26
   }
 });
