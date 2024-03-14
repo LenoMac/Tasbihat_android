@@ -18,7 +18,6 @@ import ishaActive from "../../../assets/icons/active-isha.png";
 import ishaNoneActive from "../../../assets/icons/nonactive-isha.png";
 // Время намаза
 import moment from "moment";
-import PrayerTimes from "../../../api";
 export default function Times() {
   const [fajrTime, setFajrTime] = useState("");
   const [sunriseTime, setSunriseTime] = useState("");
@@ -55,6 +54,10 @@ export default function Times() {
         setAsrTime(todayPrayerTime.Asr.substr(0, 5));
         setMagribTime(todayPrayerTime.Maghrib.substr(0, 5));
         setIshaTime(todayPrayerTime.Isha.substr(0, 5));
+        
+
+
+
       } else {
         console.log("Ошибка");
       }

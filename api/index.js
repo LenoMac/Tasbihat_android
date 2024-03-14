@@ -8,10 +8,8 @@ export default function PrayerTimes() {
   const loadTimes = async () => {
     try {
       const cachedData = await AsyncStorage.getItem("times");
-
-      if (!cachedData.length) {
+      if (cachedData !== null) {
         setDatas(JSON.parse(cachedData));
-        setLoading(false);
       } else {
         const response = await fetch(
           "https://api.aladhan.com/v1/calendarByAddress/2024/3?address=Bishkek%&method=3"
@@ -26,13 +24,5 @@ export default function PrayerTimes() {
       console.error("Ошибка загрузки данных", error);
     }
   };
-
-  useEffect(() => {
-    async function fetchData() {
-      await loadTimes();
-    }
-    fetchData();
-  }, []);
-
-  return { datas, loading };
+  return { datas, loading, loadTimes };
 }

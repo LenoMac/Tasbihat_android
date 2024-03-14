@@ -7,17 +7,18 @@ import {
   Pressable,
   Appearance,
 } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { Table, Row } from "react-native-table-component";
-import PrayerTimes from "../../../api/index";
+import data from "../../../data/time.json";
 import { useNavigation } from "@react-navigation/native";
+import moment from "moment";
 const colorScheme = Appearance.getColorScheme();
 const darkMode = colorScheme === "dark";
 
 export default function TableComponents() {
-  const tableHead = ["Рамадан", "Дата", "Сухур", "Ифтар"];
-  const { datas, loading } = PrayerTimes();
-  const navigation = useNavigation()
+  const tableHead = ["№", "Дата", "Сухур", "Ифтар"];
+
+  const navigation = useNavigation();
   const CalendarButton = ({ title }) => {
     return (
       <Pressable onPress={() => navigation.navigate("Calendar")}>
@@ -30,7 +31,7 @@ export default function TableComponents() {
 
   return (
     <View style={styles.main}>
-      {!datas.length ? (
+      {!data.length ? (
         <ActivityIndicator color="#5D2559" size="large" />
       ) : (
         <>
@@ -39,23 +40,47 @@ export default function TableComponents() {
             borderStyle={{ borderWidth: 2, borderColor: "transparent" }}
           >
             <Row
-              // textStyle={styles.text}
+              textStyle={styles.text}
               style={styles.header}
               data={tableHead}
             />
           </Table>
-          <FlatList
-            data={datas.slice(10)}
+          {data.slice(10).map((item, index) => {
+            return (
+              <View key={index} style={styles.headerBody}>
+                <Text style={styles.bodyText}>{index + 1}</Text>
+                <Text style={styles.bodyText}>
+                  {item.date.readable.substring(0, 2)}{" "}
+                  {item.date.gregorian.month.en === "March" ? "Мар" : "Апр"}
+                </Text>
+                <Text style={styles.bodyText}>
+                  {item.timings.Fajr.substring(0, 6)}
+                </Text>
+                <Text style={styles.bodyText}>
+                  {item.timings.Isha.substring(0, 6)}
+                </Text>
+              </View>
+            );
+          })}
+          {/* <FlatList
+            data={data.slice(10)}
             // keyExtractor={(item) => item.id.toString()} // Используйте уникальный идентификатор
             renderItem={({ item, index }) => (
               <View key={index} style={styles.headerBody}>
-                <Text style={styles.bodyText}>1</Text>
-                <Text style={styles.bodyText}>11.03</Text>
-                <Text style={styles.bodyText}>{item.Fajr.substring(0, 6)}</Text>
-                <Text style={styles.bodyText}>{item.Isha.substring(0, 6)}</Text>
+                <Text style={styles.bodyText}>{index + 1}</Text>
+                <Text style={styles.bodyText}>
+                  {item.date.readable.substring(0, 2)}{" "}
+                  {item.date.gregorian.month.en === "March" ? "Мар" : "Апр"}
+                </Text>
+                <Text style={styles.bodyText}>
+                  {item.timings.Fajr.substring(0, 6)}
+                </Text>
+                <Text style={styles.bodyText}>
+                  {item.timings.Isha.substring(0, 6)}
+                </Text>
               </View>
             )}
-          />
+          /> */}
           <CalendarButton title="Посмотреть на календаре" />
         </>
       )}
@@ -79,7 +104,6 @@ const styles = StyleSheet.create({
     // paddingHorizontal: 16,
     paddingVertical: 10,
     backgroundColor: "#5D2559",
-    paddingLeft: 21,
     flexDirection: "row",
     justifyContent: "space-around",
   },
@@ -101,6 +125,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 16,
     fontFamily: "Medium",
+    width: "18%",
   },
   calendarButton: {
     backgroundColor: "#F2BB4A",
@@ -113,6 +138,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     fontFamily: "Bold",
     textAlign: "center",
-    fontSize: 18
+    fontSize: 16,
   },
 });

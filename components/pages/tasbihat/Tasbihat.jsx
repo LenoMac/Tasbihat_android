@@ -1,16 +1,20 @@
 import React from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import NavigateButton from "../../atoms/buttons/navigates/NavigateButton";
-
+import fajr from "../../../assets/icons/active-fajr.png";
+import zuhr from "../../../assets/icons/active-zuhr.png";
+import asr from "../../../assets/icons/active-asr.png";
+import magrib from "../../../assets/icons/active-magrib.png";
+import isha from "../../../assets/icons/active-isha.png";
+import TasbihatBtns from "../../atoms/buttons/navigates/tasbihat_btns/Tasbihat_btns";
 export const Tasbihat = () => {
   const navigation = useNavigation();
   const listOfTasbih = [
-    { title: "Фаджр", name: "Fajr" },
-    { title: "Зухр", name: "Zuhr" },
-    { title: "Аср", name: "Asr" },
-    { title: "Магриб", name: "Magrib" },
-    { title: "Иша", name: "Isha" },
+    { title: "Фаджр", name: "Fajr", img: fajr },
+    { title: "Зухр", name: "Zuhr", img: zuhr },
+    { title: "Аср", name: "Asr", img: asr },
+    { title: "Магриб", name: "Magrib", img: magrib },
+    { title: "Иша", name: "Isha", img: isha },
   ];
 
   const onPress = (name) => {
@@ -22,9 +26,10 @@ export const Tasbihat = () => {
         <View style={styles.button_list}>
           {listOfTasbih.map((item, index) => {
             return (
-              <NavigateButton
+              <TasbihatBtns
                 title={item.title}
                 key={index}
+                img={item.img}
                 name={item.name}
                 onPress={() => onPress(item.name)}
               />
@@ -49,9 +54,9 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   button_list: {
-    display: "flex",
+    height: '100%',
     flexDirection: "column",
     gap: 20,
-    marginTop: 100,
+    justifyContent: 'center'
   },
 });

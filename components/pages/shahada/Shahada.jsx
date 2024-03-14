@@ -8,7 +8,7 @@ export const Shahada = () => {
   const { lang, loadLanguage } = useLanguageState();
   return (
     <View style={styles.shahada}>
-      <ScrollView>
+      <ScrollView overScrollMode="never">
         <View style={styles.container}>
           <View style={styles.box}>
             <View>
